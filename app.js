@@ -17,6 +17,7 @@ app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
+  app.engine('html', require('ejs').renderFile);
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
@@ -36,8 +37,16 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
-require('./routes').init();
-//require('./Controller/indexController').index();
-require('./Model/indexModel').indexModel();
+var mongoose = require('mongoose')
+  , db = mongoose.createConnection('localhost','codeT');//DB connect.
 
-console.log(require('./Model/indexModel').getModel);
+db.on('error',console.error.bind(console,'连接错误!'));// DB event listener.
+
+db.on('open',function callback(){
+   console.log('db connect!');
+});
+
+require('./routes').init();
+
+
+// console.log(require('./Model/indexModel').getModel);

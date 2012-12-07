@@ -3,7 +3,7 @@ var available = false;
 var modellist = ['catalog','user','article']; // Model list.When the model have some change , that array also should be changed.
 var modelExist = false;
 
-exports.indexModel = function(){
+exports=module.exports= function(){
 	
 	var mongoose = require('mongoose')
 	  , db = mongoose.createConnection('localhost','codeT');//DB connect.
