@@ -1,7 +1,3 @@
-
-/*
- * GET home page.
- */
 var app = require('../app');
 var indexCtr = require('../Controller/indexController');
 var userCtr = require('../Controller/userController');
@@ -11,5 +7,6 @@ var catalogCtr = require('../Controller/catalogController');
 
 exports.init = function(req, res){
  	app.get('/', indexCtr.index);
-	app.get('/users', userCtr.list);
+	app.get('/articlelist', articleCtr.list);
+	app.post('/article',articleCtr.createDate);
 };

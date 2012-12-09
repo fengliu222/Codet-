@@ -1,0 +1,27 @@
+<% include header %>
+	<h3>article</h3>
+
+	<form action="/article" method='post'>
+		<textarea name="code" id="codecontent" cols="30" rows="10">	
+		</textarea>
+
+		<input type="text" placeholder='Catalog' name='catalog'/>
+
+		<input type="submit" value='submit' />
+	</form>
+
+	<section id="content">
+		<div class="date">
+			<%= locals.date %>
+		</div>
+		<div class="h">
+			<%= locals.codeh %>
+		</div>
+		<div class="codeContent">
+			<%= locals.codecontent %>
+		</div>
+		<script type="text/javascript">
+			console.log(<%= locals.codecontent %>);
+		</script>
+	</section>
+<% include footer %>

@@ -3,5 +3,6 @@ var model = require('../Model/indexModel');
 
 
 exports.index = function(req, res){
-	 res.render('header.ejs',{site_title:"moe"});
+	var scriptImportStr = '';
+	res.render('index.ejs',{site_title:"a"});
 };
